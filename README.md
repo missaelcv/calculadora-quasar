@@ -1,12 +1,12 @@
-# Quasar App (calculadora1)
+## Quasar App (calculadora1)
 
 A Quasar Framework app
 
-## Install the dependencies
+### Install the dependencies
 ```javascript
 npm install
 ```
-## Name and Proyect 
+### Name and Proyect 
 ```javascript
 quasar create <folder_name> --branch next
 ```
@@ -22,47 +22,38 @@ quasar dev
 ```
 
 ### Build the app for production
-```bash
+```javascript
 quasar build
 ```
 
-## Cambio de hash a history en quasar.confing
+### Cambio de hash a history en quasar.confing
 ```javascript
  vueRouterMode: 'history',
  ```
 
-## Index.vue Inicio para modificacion 
-```javascript
-<template>
-  <q-page class="flex flex-center">
-    <img  alt="Quasar logo" src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px">
-  </q-page>
-</template>
-<script>
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'PageIndex'
-})
-</script>
-```
-
-## Centralizar columnas
+ 
+### Centralizar columnas
 ```javascript
  <div class="row justify-center">
  ```
 
-
-## Creando la Tarjeta con Section y clase para Creal el Texto de la calculadora
+### Index.vue Inicio para modificacion 
 ```javascript
- <div class="row justify-center">
+<template>
+  <div class="row justify-center">
      <div class="col-12 col-md-8">
        <q-card>
          <q-card-section class="bg-primary text-white">
            <div class=" text-h6">Calculadora App</div>
          </q-card-section>
        </q-card>
-    </div>  </div>
+</template>
+<script>
+export default {
+  setup() {
+  },
+}
+</script>
 ```
 
 ### Customize the configuration
