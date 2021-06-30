@@ -1,17 +1,20 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+  <q-page padding>
+    <div class="row justify-center">
+     <div class="col-12 col-md-8">
+       <q-card>
+         <q-card-section class="bg-primary text-white">
+           <div class=" text-h6">Calculadora App</div>
+         </q-card-section>
+       </q-card>
+    </div>
+    </div>
   </q-page>
 </template>
-
 <script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'PageIndex'
-})
+export default {
+  setup() {
+    
+  },
+}
 </script>
