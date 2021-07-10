@@ -7,7 +7,7 @@
          <q-card-section class="bg-primary text-white">
            <div class=" text-h6 text-center">Calculadora App</div>
          </q-card-section>
-         <div class="text-h5 text-grey text-rigth">
+         <div class="text-h5 text-grey text-left">
             {{acumulador + actual}}
          </div>
 
@@ -16,7 +16,7 @@
         </div>
 
 
-         <q-card-section class="bg-grey-4">
+         <q-card-section class="bg-grey-4 text-center">
            <div class="row q-col-gutter-sm">
              <div class="col-3"
              v-for="(btn, index) in botones" :key="index">
@@ -31,14 +31,16 @@
 
              <div class="col-6">
                <q-btn class="full-width text-h6"
-               color="indigo">
+               color="indigo"
+               @click = "btnReiniciar">
                 Reset
                </q-btn>
              </div>
 
              <div class="col-6">
                <q-btn class="full-width text-h6"
-               color="orange">
+               color="orange"
+              >
                 =
                </q-btn>
              </div>
@@ -90,6 +92,12 @@ export default {
 
       const agregandoOperador = valor => {
         acumulador.value += `${actual.value} ${valor} `
+        actual.value = " "
+      }
+
+      const btnReiniciar = () => {
+        actual.value = " "
+        acumulador.value = " "
       }
 
     return {
@@ -97,7 +105,8 @@ export default {
     noEsNumero,
     btnAccion,
     actual,
-    acumulador
+    acumulador,
+    btnReiniciar
     }
   },
 }
