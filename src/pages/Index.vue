@@ -7,12 +7,12 @@
          <q-card-section class="bg-primary text-white">
            <div class=" text-h6 text-center">Calculadora App</div>
          </q-card-section>
-         <div class="text-h5 text-grey text-left">
+         <div class="text-h4 text-grey">
             {{acumulador + actual}}
          </div>
 
         <div class="text-h4 text-center" >
-          Resultado
+          {{resultado}}
         </div>
 
 
@@ -40,7 +40,7 @@
              <div class="col-6">
                <q-btn class="full-width text-h6"
                color="orange"
-              >
+              @click="btnResultado">
                 =
                </q-btn>
              </div>
@@ -55,6 +55,8 @@
 </template>
 <script>
 import {ref} from 'vue'
+import { evaluate, round,
+} from 'mathjs'
 export default {
   setup() {
     
@@ -64,6 +66,7 @@ export default {
 
     const actual = ref('')
     const acumulador = ref('')
+    const resultado = ref('')
 
     const btnAccion = valor => {
 
@@ -100,13 +103,19 @@ export default {
         acumulador.value = " "
       }
 
+      const btnResultado = () => {
+        resultado.value = evaluate(acumulador.value + actual.value)
+      }
+
     return {
     botones,
     noEsNumero,
     btnAccion,
     actual,
     acumulador,
-    btnReiniciar
+    btnReiniciar,
+    btnResultado,
+    resultado
     }
   },
 }
