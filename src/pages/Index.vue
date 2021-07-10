@@ -8,7 +8,7 @@
            <div class=" text-h6 text-center">Calculadora App</div>
          </q-card-section>
          <div class="text-h5 text-grey text-rigth">
-            {{actual}}
+            {{acumulador + actual}}
          </div>
 
         <div class="text-h4 text-center" >
@@ -61,6 +61,7 @@ export default {
     const noEsNumero = valor => isNaN(valor)
 
     const actual = ref('')
+    const acumulador = ref('')
 
     const btnAccion = valor => {
 
@@ -88,14 +89,15 @@ export default {
       }
 
       const agregandoOperador = valor => {
-        
+        acumulador.value += `${actual.value} ${valor} `
       }
 
     return {
     botones,
     noEsNumero,
     btnAccion,
-    actual
+    actual,
+    acumulador
     }
   },
 }
