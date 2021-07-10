@@ -11,9 +11,11 @@
             {{acumulador + actual}}
          </div>
 
-        <div class="text-h4 text-center" >
+        <div class="text-h4 text-center col-6" >
+         
           {{resultado}}
         </div>
+       
 
 
          <q-card-section class="bg-grey-4 text-center">
@@ -67,10 +69,14 @@ export default {
     const actual = ref('')
     const acumulador = ref('')
     const resultado = ref('')
-
+    const operadorClick = ref(true)
     const btnAccion = valor => {
 
       if(!noEsNumero(valor)){
+        if(operadorClick.value){
+          actual.value = " "
+          operadorClick.value = false 
+        }
         actual.value = `${actual.value}${valor}`
       }else {
         ejecutarOperacion(valor)
@@ -94,17 +100,28 @@ export default {
       }
 
       const agregandoOperador = valor => {
+        if(!operadorClick.value){
         acumulador.value += `${actual.value} ${valor} `
         actual.value = " "
+        operadorClick.value = true
+        }
+        
       }
 
       const btnReiniciar = () => {
         actual.value = " "
         acumulador.value = " "
+        resultado.value = " "
+        operadorClick.value = true
       }
 
       const btnResultado = () => {
+        if(!operadorClick.value){
         resultado.value = evaluate(acumulador.value + actual.value)
+        }else {
+          resultado.value = 'Error'
+        }
+         
       }
 
     return {
