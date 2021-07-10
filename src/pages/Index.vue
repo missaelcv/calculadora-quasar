@@ -51,6 +51,7 @@
           
          </q-card-section>
        </q-card>
+       <pre>{{arrayResultado}}</pre>
     </div>
     </div>
   </q-page>
@@ -70,6 +71,7 @@ export default {
     const acumulador = ref('')
     const resultado = ref('')
     const operadorClick = ref(true)
+    const arrayResultado = ref([])
     const btnAccion = valor => {
 
       if(!noEsNumero(valor)){
@@ -118,6 +120,7 @@ export default {
       const btnResultado = () => {
         if(!operadorClick.value){
         resultado.value = evaluate(acumulador.value + actual.value)
+        arrayResultado.value.push(`${acumulador.value} + ${actual.value} = ${resultado.value}`)
         }else {
           resultado.value = 'Error'
         }
@@ -132,7 +135,8 @@ export default {
     acumulador,
     btnReiniciar,
     btnResultado,
-    resultado
+    resultado,
+    arrayResultado
     }
   },
 }
